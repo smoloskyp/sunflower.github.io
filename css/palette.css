@@ -1,0 +1,71 @@
+:root{
+  --bg: #ffffff;
+  --fg: #0f172a;
+  --sidebar-bg: #f3f4f6;
+  --sidebar-fg: #0f172a;
+  --btn-hover: rgba(15,23,42,0.05);
+  --btn-active: rgba(15,23,42,0.12);
+  --stats-bg: #ffffff;
+  --input-border: #d1d5db;
+  --card-shadow: 0 6px 18px rgba(15,23,42,0.4);
+  --selection-bg: #0000007a;
+  --selection-fg: #ffffff;
+  --qr-bg: #f3f4f6;
+  --qr-fg: #0f172a;
+}
+
+[data-theme='dark'] {
+  --bg: #121212;
+  --fg: #e0e0e0;
+  --sidebar-bg: #1a1a1a;
+  --sidebar-fg: #f5f5f5;
+  --btn-hover: rgba(255,255,255,0.06);
+  --btn-active: rgba(255,255,255,0.16);
+  --stats-bg: #1e1e1e;
+  --input-border: #333333;
+  --card-shadow: 0 8px 24px rgba(0,0,0,0.6);
+  --selection-bg: #ffffff7a;
+  --selection-fg: #000000;
+  --qr-bg: #f5f5f5;
+  --qr-fg: #1a1a1a;
+}
+
+/* SUCCESS PALETTE */
+
+.color-success {
+  color: #48d143 !important;
+}
+
+[data-theme='light'] .bg-success {
+  background: #b2e4af !important;
+}
+[data-theme='dark'] .bg-success {
+  background: #376836 !important;
+}
+
+
+/* WARNING PALETTE */
+
+.color-warning {
+  color: #ffd20c !important;
+}
+
+[data-theme='light'] .bg-warning {
+  background: #ffd20c !important;
+}
+[data-theme='dark'] .bg-warning {
+  background: #b8860b !important;
+}
+
+/* ERROR PALETTE */
+
+.color-error {
+  color: #ff450c !important;
+}
+
+[data-theme='light'] .bg-error {
+  background: #ec8565 !important;
+}
+[data-theme='dark'] .bg-error {
+  background: #c62828 !important;
+}

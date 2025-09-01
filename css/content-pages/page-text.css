@@ -1,0 +1,16 @@
+.card.toolbar.text {
+    width: 20%;
+    min-width: 300px;
+    height: auto;
+    padding: 15px;
+    background: var(--sidebar-bg);
+}
+
+.card.toolbar.text h3 {
+    margin-bottom: 15px;
+}
+
+.card.toolbar.text hr {
+    border-color: var(--btn-active);
+    margin-bottom: 15px;
+}

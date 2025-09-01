@@ -1,0 +1,112 @@
+.sidebar {
+  width:230px;
+  min-width:200px;
+  background:var(--sidebar-bg);
+  color:var(--sidebar-fg);
+  display:flex;
+  flex-direction:column;
+  padding:20px;
+  padding-left: 25px;
+  z-index:2
+}
+
+.sidebar, .nav-btn, .brande select {
+    color:var(--sidebar-fg);
+}
+
+/* BRAND */
+
+.brand {
+    /* text-align: center; */
+    font-size: 1.7rem;
+    font-weight:770;
+    margin: 10px 0 20px 0;
+}
+
+/* NAV / TABS / BUTTONS */
+
+.sidebar button.active {
+  background: var(--btn-active);
+  color: var(--sidebar-fg);
+  font-weight: bold;
+}
+
+.nav {
+    display:flex;
+    flex-direction:column;
+    gap:4px
+}
+
+.nav-btn {
+    font-weight: 550;
+    background:transparent;
+    border:none;
+    padding:10px 12px;
+    text-align:left;
+    border-radius:8px;
+    cursor:pointer;
+    text-align:left;
+}
+
+.nav-btn i {
+    margin-right: 10px;
+    color: var(--fg);
+}
+
+.nav-btn:hover { 
+    background:var(--btn-hover);
+}
+
+/* FOOTER */
+
+.sidebar-footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction:row;
+  justify-content: space-between;
+}
+
+/* THEME */
+
+.theme-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-btn svg {
+  width: 30px;
+  height: 30px;
+  margin-right: 0;
+  margin-left: auto;
+  color: var(--sidebar-fg);
+  display: none;
+}
+
+[data-theme="light"] .theme-btn .icon-moon {
+  display: block;
+}
+[data-theme="dark"] .theme-btn .icon-sun {
+  display: block;
+}
+
+/* LANG */
+
+.lang select {
+  background: var(--sidebar-bg);
+  color: var(--sidebar-fg);
+  border: 1px solid var(--input-border);
+  border-radius: 6px;
+  padding: 9px 13px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.lang select:focus {
+  outline: none;
+  border-color: var(--btn-active);
+}

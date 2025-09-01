@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="title">Sunflower • JSON parser</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css -->
+
+    <link rel="stylesheet" href="css/palette.css">
+    <link rel="stylesheet" href="css/globale.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/content.css">
+    <link rel="stylesheet" href="css/content-pages/page-json.css">
+    <link rel="stylesheet" href="css/notification.css">
+    <link rel="stylesheet" href="css/content-pages/page-text.css">
+    <link rel="stylesheet" href="css/content-pages/page-qr.css">
+
+</head>
+<body>
+    <div class="app">
+
+        <!-- MESSAGES -->
+
+       <div id="notification" class="popup"><i class=""></i><span></span></div>
+       <div id="success" class="popup bg-success"><i class=""></i><span></span></div>
+        <div id="warning" class="popup bg-warning"><i class></i><span data-i18n></span></div>
+        <div id="error" class="popup bg-error"><i class></i><span data-i18n></span></div> 
+
+        <script src="js/notification.js"></script>
+        
+        <!-- SIDEBAR -->
+
+        
+        <aside class="sidebar">
+            <div class="brand" data-i18n="brand">
+                Sunflower 🌻
+            </div> 
+
+
+            <nav class="nav">
+                <button class="nav-btn" data-tab="json">
+                    <i class="fa fa-file-code-o"></i>
+                    <span data-i18n="sidebar.json" ></span>
+                </button>
+                
+
+                <button class="nav-btn" data-tab="text">
+                    <i class="fa fa-align-left"></i>
+                    <span data-i18n="sidebar.text"></span>
+                </button>
+                
+                
+                <button class="nav-btn" data-tab="qrcode">
+                    <i class="fa fa-qrcode"></i>
+                    <span data-i18n="sidebar.qrcode"></span>
+                </button>
+                
+
+                <button class="nav-btn" data-tab="text-compare">
+                    <i class="fa fa-code-fork"></i>
+                    <span data-i18n="sidebar.text-compare"></span>
+                </button>
+                
+
+                <button class="nav-btn" data-tab="about">
+                    <i class="fa fa-info"></i>
+                    <span data-i18n="sidebar.about"></span>
+                </button>
+            </nav>
+
+
+            <footer class="sidebar-footer">
+                <div class="lang">                        
+                    <select id="langSelect" aria-label="Select language">
+                        <option value="uk">Українська</option>
+                        <option value="en">English</option>
+                        <option value="de">Deutsch</option>
+                    </select>
+                </div>
+                <script src="js/sidebar-lang.js"></script>
+
+
+                <button id="themeToggle" class="theme-btn" type="button" onclick="toggleTheme()">
+                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon-icon lucide-moon">
+                        <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/>
+                    </svg>
+                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun-icon lucide-sun">
+                        <circle cx="12" cy="12" r="4"/>
+                        <path d="M12 2v2"/>
+                        <path d="M12 20v2"/>
+                        <path d="m4.93 4.93 1.41 1.41"/>
+                        <path d="m17.66 17.66 1.41 1.41"/>
+                        <path d="M2 12h2"/>
+                        <path d="M20 12h2"/>
+                        <path d="m6.34 17.66-1.41 1.41"/>
+                        <path d="m19.07 4.93-1.41 1.41"/>
+                    </svg>
+                </button>
+                <script src="js/sidebar-theme.js"></script>
+
+                
+            </footer>
+        </aside>
+        <script  src="js/sidebar-tabs.js"></script>
+
+        <!-- CONTENT -->
+
+        <main class="content">
+            <section id="json" class="tab active">
+                <div class="text-panel">
+                    <h2 data-i18n="content.json.text-panel.title"></h2>
+                    <textarea id="textarea-json" placeholder="" data-i18n-placeholder="textPanel.placeholder"></textarea>
+                </div>
+
+                <aside class="card stats-panel" aria-live="polite">
+                    <h3 data-i18n="content.json.status-panel.title"></h3>
+                    <div class="tools">
+                        <button class="tools-btn" type="button" onclick="compressJSON()">
+                            <i class="fa fa-compress"></i>
+                            <span data-i18n="content.json.status-panel.compress"></span>
+                        </button>
+                        <button class="tools-btn" type="button" onclick="prettifyJSON()">
+                            <i class="fa fa-bolt"></i>
+                            <span data-i18n="content.json.status-panel.prettify"></span>
+                        </button>
+                        <button class="tools-btn" type="button" onclick="copyJSON()">
+                            <i class="fa fa-clone"></i>
+                            <span data-i18n="content.json.status-panel.copy"></span>
+                        </button>
+                        <button class="tools-btn bg-success" type="button" onclick="validateJSON()">
+                            <i class="fa fa-check"></i>
+                            <span data-i18n="content.json.status-panel.validate"></span>
+                        </button>
+                    </div>
+                </aside>
+            </section>
+            <script src="js/contant-pages/page-json.js"></script>
+
+
+            <section id="text" class="tab">
+                <div class="text-panel">
+                    <h2 data-i18n="content.text.text-panel.title"></h2>
+                    <textarea id="textarea-text" placeholder="" data-i18n-placeholder="textPanel.placeholder"></textarea>
+                </div>
+
+                <aside class="card toolbar text">
+                    <h3 data-i18n="content.text.toolbar.title"></h3>
+                    <hr>
+                    <div class="tools">
+                        <div class="stat"><span data-i18n="content.text.toolbar.chars"></span> <strong id="charCount">0</strong></div>
+                        <div class="stat"><span data-i18n="content.text.toolbar.lines"></span> <strong id="lineCount">0</strong></div>
+                        <div class="stat"><span data-i18n="content.text.toolbar.words"></span> <strong id="wordCount">0</strong></div> 
+                        <div class="stat"><span data-i18n="content.text.toolbar.letters"></span> <strong id="letterCount">0</strong></div>
+                    </div>
+                </aside>
+            </section>
+            <script src="js/contant-pages/page-text.js"></script>
+
+
+            <section id="qrcode" class="tab">
+                <div class="text-panel">
+                    <h2 data-i18n="content.qr.toolbar.title"></h2>
+                    <textarea id="qr-toolbar-text-textarea" placeholder="" data-i18n-placeholder="textPanel.placeholder"></textarea>
+                </div>
+
+                <aside class="card toolbar qr">
+                    <div id="qrcode-holder"></div>
+                    
+                    <div class="tools">
+                        <button class="tools-btn" type="button" onclick="copyQR()">
+                            <i class="fa fa-clone"></i>
+                            <span data-i18n="content.qr.tools.copy"></span>
+                        </button>
+
+                        <button class="tools-btn bg-success" type="button" onclick="downloadQR()">
+                            <i class="fa fa-floppy-o"></i>
+                            <span data-i18n="content.qr.tools.download"></span>
+                        </button>
+                    </div>
+                </aside>
+            </section>
+            <script src="js/contant-pages/page-qrcode.js"></script>
+
+
+            <section id="text-compare" class="tab">
+                <div class="card warning">
+                    <svg class="warning" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-triangle-alert-icon lucide-triangle-alert">
+                        <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/>
+                        <path d="M12 9v4"/>
+                        <path d="M12 17h.01"/>
+                    </svg>
+                    <p class="warning" data-i18n="indevelopment"></p>
+                </div>
+            </section>
+
+
+            <section id="about" class="tab">
+                <div class="card warning">
+                    <img src="img/peppa-telefon.gif" class="warning">
+                    <p class="warning" data-i18n="indevelopment"></p>
+                </div>
+            </section>
+        </main>
+
+    </div>
+
+  
+  
+</body>
+</html>
